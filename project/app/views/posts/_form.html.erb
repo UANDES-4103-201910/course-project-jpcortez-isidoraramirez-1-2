@@ -1,0 +1,82 @@
+<%= form_with(model: post, local: true) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :likes %>
+    <%= form.number_field :likes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :flags %>
+    <%= form.number_field :flags %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dislikes %>
+    <%= form.number_field :dislikes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :attachment %>
+    <%= form.text_field :attachment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :string %>
+    <%= form.text_field :string %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_field :body %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.text_field :image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dumpster_id %>
+    <%= form.text_field :dumpster_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :super_admin_id %>
+    <%= form.text_field :super_admin_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :admin_id %>
+    <%= form.text_field :admin_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :wall_id %>
+    <%= form.text_field :wall_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

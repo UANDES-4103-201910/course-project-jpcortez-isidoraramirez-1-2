@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mail: MyString
+  name: MyString
+  password: MyString
+  blacklist: one
+  super_admin: one
+  administrator: one
+
+two:
+  mail: MyString
+  name: MyString
+  password: MyString
+  blacklist: two
+  super_admin: two
+  administrator: two
