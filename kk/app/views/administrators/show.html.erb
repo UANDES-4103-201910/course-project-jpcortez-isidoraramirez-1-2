@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @administrator.name %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @administrator.password %>
+</p>
+
+<p>
+  <strong>Mail:</strong>
+  <%= @administrator.mail %>
+</p>
+
+<p>
+  <strong>Geoference:</strong>
+  <%= @administrator.geoference %>
+</p>
+
+<p>
+  <strong>Super admin:</strong>
+  <%= @administrator.super_admin %>
+</p>
+
+<%= link_to 'Edit', edit_administrator_path(@administrator) %> |
+<%= link_to 'Back', administrators_path %>
