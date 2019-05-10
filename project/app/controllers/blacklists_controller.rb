@@ -1,6 +1,6 @@
 class BlacklistsController < ApplicationController
   before_action :set_blacklist, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :verify_authenticity_token
   # GET /blacklists
   # GET /blacklists.json
   def index

@@ -1,6 +1,6 @@
 class SuperAdminsController < ApplicationController
   before_action :set_super_admin, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :verify_authenticity_token
   # GET /super_admins
   # GET /super_admins.json
   def index

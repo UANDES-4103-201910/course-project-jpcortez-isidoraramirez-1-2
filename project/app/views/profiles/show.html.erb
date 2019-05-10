@@ -1,5 +1,5 @@
-<p id="notice"><%= notice %></p>
-
+<!-- <p id="notice"><%= notice %></p>
+ <p><%= @profile.bio %></p>
 <p>
   <strong>Bio:</strong>
   <%= @profile.bio %>
@@ -27,8 +27,75 @@
 
 <p>
   <strong>User:</strong>
-  <%= @profile.user %>
+  <%= "#{@profile.user.name} ""#{@profile.user.mail}"  %>
 </p>
 
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%= link_to 'Back', profiles_path %>
+
+ -->
+
+ <body class="prbody">
+  <div class="prfcontainer">
+    <div class="row profile">
+    <div class="col-md-3">
+      <div class="profile-sidebar">
+        <!-- SIDEBAR USERPIC -->
+        <div class="profile-userpic">
+          <img src="http://keenthemes.com/preview/metronic/theme/assets/admin/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
+        </div>
+        <!-- END SIDEBAR USERPIC -->
+        <!-- SIDEBAR USER TITLE -->
+        <div class="profile-usertitle">
+          <div class="profile-usertitle-name">
+            <%= @profile.user.name %>
+          </div>
+          <div class="profile-usertitle-job">
+            <%= @profile.country %>
+          </div>
+        </div>
+        <!-- END SIDEBAR USER TITLE -->
+        <!-- SIDEBAR BUTTONS -->
+        <div class="profile-userbuttons">
+          <button type="button" class="btn btn-success btn-sm">Follow</button>
+          <button type="button" class="btn btn-danger btn-sm">Message</button>
+        </div>
+        <!-- END SIDEBAR BUTTONS -->
+        <!-- SIDEBAR MENU -->
+        <div class="profile-usermenu">
+          <ul class="nav">
+            <li class="active">
+              <a href="#">
+              <i class="glyphicon glyphicon-home"></i>
+              Overview </a>
+            </li>
+            <li>
+              <a href="#">
+              <i class="glyphicon glyphicon-user"></i>
+              Account Settings </a>
+            </li>
+            <li>
+              <a href="#" target="_blank">
+              <i class="glyphicon glyphicon-ok"></i>
+              Tasks </a>
+            </li>
+            <li>
+              <a href="#">
+              <i class="glyphicon glyphicon-flag"></i>
+              Help </a>
+            </li>
+          </ul>
+        </div>
+        <!-- END MENU -->
+      </div>
+    </div>
+    <div class="">
+            <div class="profile-content">
+         Some user related content goes here...
+            </div>
+    </div>
+  </div>
+</div>
+
+ </body>
+ 

@@ -1,6 +1,6 @@
 class AdministratorsController < ApplicationController
   before_action :set_administrator, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :verify_authenticity_token
   # GET /administrators
   # GET /administrators.json
   def index

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  get 'login/' => 'login#login'
   get '/home'=>'home#home'
+  post '/walls_create' => 'walls#create'
   root :to => 'home#home'
   resources :comments
   resources :attachments
@@ -30,10 +32,6 @@ Rails.application.routes.draw do
   post '/administrators_create' => 'administrators#create'
   delete '/administrators/:id' => 'administrators#destroy'
   
-  get '/users/:id' => 'users#show'
-  get '/users' => 'users#index'
-  post '/users/create' => 'users#create'
-  delete '/users/:id' => 'users#destroy'
 
   get '/dumpsters/:id' => 'dumpsters#show'
   get '/dumpsters' => 'dumpsters#index'
@@ -46,6 +44,7 @@ Rails.application.routes.draw do
   post '/blacklists_create' => 'blacklists#create'
   delete '/blacklists/:id' => 'blacklists#destroy'
   post '/blacklists' => 'blacklists#create'
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

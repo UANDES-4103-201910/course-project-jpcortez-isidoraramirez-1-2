@@ -1,6 +1,6 @@
 class DumpstersController < ApplicationController
   before_action :set_dumpster, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :verify_authenticity_token
   # GET /dumpsters
   # GET /dumpsters.json
   def index

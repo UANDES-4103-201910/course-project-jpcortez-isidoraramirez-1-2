@@ -1,6 +1,7 @@
 class WallsController < ApplicationController
   before_action :set_wall, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :verify_authenticity_token
+  
   # GET /walls
   # GET /walls.json
   def index

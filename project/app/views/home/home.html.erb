@@ -1,17 +1,52 @@
 <div class="hola col-lg-0">
-	<div>
-		<a href="/posts">ACA VA EL CUERPO</a>
-	</div>
-	<div>
-		<textarea class="textarea"></textarea>
-	</div>
-	
-	
+    <div>
+        <textarea class="textarea" placeholder="Type here what is bothering you..."></textarea>
+    </div>
 </div>
-<div class="chao col-lg-1"><a href="/super_admins">ACA VAN LOS TOP POSTS <hr></a>
-<p id="prueba">QUIERO PROBAR ALGOOOO</p></div>
-<div class="otro"><a href="/administrators">admins</a></div>
-<a href="/dumpsters">basura</a>
-<a href="/blacklists">negro</a>
-<a href="/users">choros</a>
-<a href="/home">home</a>
+<% @posts.each do |post| %>
+
+<div class="hola col-lg-0">
+	<div>
+        <a href=<%= "/profiles/#{post.user_id}"%>> <p class="usernamepost"><%=@users.find { |user| user.id == post.user_id}.name%> 
+        </p></a>
+		
+	</div>
+	
+  <div class="span6">
+    <div class="row">
+      <div class="span6 col-lg-3">
+        <h4><strong><a href="#"><%=post.title%></a></strong></h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span2 col-lg-4">
+        <a href="#" class="thumbnail">
+            <img src="http://placehold.it/260x180" alt="">
+        </a>
+      </div>
+      <div class="spanisi col-lg-7">      
+        <p>
+          <%=post.body%>
+        </p>
+      </div>
+    </div>
+    <div class="row col-lg-5">
+      <div class="span6 col-lg-9">
+        <p></p>
+        <p>
+           <i class="icon-calendar"></i> <%=post.created_at.to_formatted_s(:long)%>
+          | <i class="icon-comment"></i> <a href="#">3 Comments</a>
+          | <i class="icon-share"></i> <a href="#">39 likes</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<%end%>
+
+
+<div class="otro"><p>&nbsp;</p></div>
