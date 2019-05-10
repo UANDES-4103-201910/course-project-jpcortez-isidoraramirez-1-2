@@ -23,3 +23,6 @@ Things you may want to cover:
 
 * ...
 https://www.getpostman.com/collections/c4ddafb9683e3c62a193
+
+
+Se asume que cualquier id necesario, este sera rellenado con un 1
