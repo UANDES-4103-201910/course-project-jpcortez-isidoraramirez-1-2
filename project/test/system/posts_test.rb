@@ -15,13 +15,9 @@ class PostsTest < ApplicationSystemTestCase
     click_on "New Post"
 
     fill_in "Administrator", with: @post.administrator_id
-    fill_in "Attachment", with: @post.attachment
     fill_in "Body", with: @post.body
-    fill_in "Dislikes", with: @post.dislikes
     fill_in "Dumpster", with: @post.dumpster_id
-    fill_in "Flags", with: @post.flags
     fill_in "Image", with: @post.image
-    fill_in "Likes", with: @post.likes
     fill_in "Super admin", with: @post.super_admin_id
     fill_in "Title", with: @post.title
     fill_in "User", with: @post.user_id
@@ -37,13 +33,9 @@ class PostsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Administrator", with: @post.administrator_id
-    fill_in "Attachment", with: @post.attachment
     fill_in "Body", with: @post.body
-    fill_in "Dislikes", with: @post.dislikes
     fill_in "Dumpster", with: @post.dumpster_id
-    fill_in "Flags", with: @post.flags
     fill_in "Image", with: @post.image
-    fill_in "Likes", with: @post.likes
     fill_in "Super admin", with: @post.super_admin_id
     fill_in "Title", with: @post.title
     fill_in "User", with: @post.user_id

@@ -17,7 +17,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create post" do
     assert_difference('Post.count') do
-      post posts_url, params: { post: { administrator_id: @post.administrator_id, attachment: @post.attachment, body: @post.body, dislikes: @post.dislikes, dumpster_id: @post.dumpster_id, flags: @post.flags, image: @post.image, likes: @post.likes, super_admin_id: @post.super_admin_id, title: @post.title, user_id: @post.user_id, wall_id: @post.wall_id } }
+      post posts_url, params: { post: { administrator_id: @post.administrator_id, body: @post.body, dumpster_id: @post.dumpster_id, image: @post.image, super_admin_id: @post.super_admin_id, title: @post.title, user_id: @post.user_id, wall_id: @post.wall_id } }
     end
 
     assert_redirected_to post_url(Post.last)
@@ -34,7 +34,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update post" do
-    patch post_url(@post), params: { post: { administrator_id: @post.administrator_id, attachment: @post.attachment, body: @post.body, dislikes: @post.dislikes, dumpster_id: @post.dumpster_id, flags: @post.flags, image: @post.image, likes: @post.likes, super_admin_id: @post.super_admin_id, title: @post.title, user_id: @post.user_id, wall_id: @post.wall_id } }
+    patch post_url(@post), params: { post: { administrator_id: @post.administrator_id, body: @post.body, dumpster_id: @post.dumpster_id, image: @post.image, super_admin_id: @post.super_admin_id, title: @post.title, user_id: @post.user_id, wall_id: @post.wall_id } }
     assert_redirected_to post_url(@post)
   end
 

@@ -1,10 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  likes: 1
-  flags: 1
-  dislikes: 1
-  attachment: MyString
   title: MyString
   body: MyString
   image: MyString
@@ -15,10 +11,6 @@ one:
   wall: one
 
 two:
-  likes: 1
-  flags: 1
-  dislikes: 1
-  attachment: MyString
   title: MyString
   body: MyString
   image: MyString

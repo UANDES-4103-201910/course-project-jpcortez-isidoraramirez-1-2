@@ -3,7 +3,7 @@
 one:
   bio: MyString
   country: MyString
-  location: MyString
+  socation: MyString
   city: MyString
   picture: MyString
   user: one
@@ -11,7 +11,7 @@ one:
 two:
   bio: MyString
   country: MyString
-  location: MyString
+  socation: MyString
   city: MyString
   picture: MyString
   user: two

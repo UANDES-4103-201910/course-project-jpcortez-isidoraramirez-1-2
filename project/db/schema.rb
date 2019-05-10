@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_12_132111) do
+ActiveRecord::Schema.define(version: 2019_05_09_170558) do
 
   create_table "administrators", force: :cascade do |t|
     t.string "name"
@@ -23,13 +23,28 @@ ActiveRecord::Schema.define(version: 2019_04_12_132111) do
     t.index ["super_admin_id"], name: "index_administrators_on_super_admin_id"
   end
 
+  create_table "attachments", force: :cascade do |t|
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_attachments_on_post_id"
+  end
+
   create_table "blacklists", force: :cascade do |t|
     t.integer "super_admin_id"
     t.integer "administrator_id"
+    t.datetime "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["administrator_id"], name: "index_blacklists_on_administrator_id"
     t.index ["super_admin_id"], name: "index_blacklists_on_super_admin_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
   create_table "dumpsters", force: :cascade do |t|
@@ -41,11 +56,21 @@ ActiveRecord::Schema.define(version: 2019_04_12_132111) do
     t.index ["super_admin_id"], name: "index_dumpsters_on_super_admin_id"
   end
 
+  create_table "flags", force: :cascade do |t|
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_flags_on_post_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_likes_on_post_id"
+  end
+
   create_table "posts", force: :cascade do |t|
-    t.integer "likes"
-    t.integer "flags"
-    t.integer "dislikes"
-    t.string "attachment"
     t.string "title"
     t.string "body"
     t.string "image"
@@ -66,7 +91,7 @@ ActiveRecord::Schema.define(version: 2019_04_12_132111) do
   create_table "profiles", force: :cascade do |t|
     t.string "bio"
     t.string "country"
-    t.string "location"
+    t.string "socation"
     t.string "city"
     t.string "picture"
     t.integer "user_id"
