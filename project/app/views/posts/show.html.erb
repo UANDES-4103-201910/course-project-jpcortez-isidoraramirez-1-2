@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Title:</strong>
@@ -11,34 +10,27 @@
 </p>
 
 <p>
-  <strong>Image:</strong>
-  <%= @post.image %>
-</p>
-
-<p>
   <strong>User:</strong>
-  <%= @post.user %>
+  <%= @post.user.email.split('@')[0].capitalize %>
 </p>
 
-<p>
-  <strong>Dumpster:</strong>
-  <%= @post.dumpster %>
-</p>
+<h2><%= @post.comments.count %> Comments</h2>
+<%= render @post.comments %><br>
 
-<p>
-  <strong>Super admin:</strong>
-  <%= @post.super_admin %>
-</p>
+<% if current_user %>
+<% if @post.user.email == current_user.email || current_user.admin %>
+<%= link_to 'Edit', edit_post_path(@post) %>
+| <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+<h3>Add a comment:</h3>
+<%= render 'comments/form' %>
+<% end %>
+<% end %>
 
-<p>
-  <strong>Administrator:</strong>
-  <%= @post.administrator %>
-</p>
 
-<p>
-  <strong>Wall:</strong>
-  <%= @post.wall %>
-</p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
+
+
+
+
+
 <%= link_to 'Back', posts_path %>

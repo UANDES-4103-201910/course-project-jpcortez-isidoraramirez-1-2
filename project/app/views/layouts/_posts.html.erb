@@ -1,0 +1,59 @@
+<div class="container" style="margin-left: 33%">
+
+  <% Post.all.each do |post| %>
+    <div class="row">
+        <div class="[ col-xs-12 col-sm-offset-1 col-sm-5 ]">
+            <div class="[ panel panel-default ] panel-google-plus">
+                <div class="dropdown">
+                    <span class="dropdown-toggle" type="button" data-toggle="dropdown">
+                        <span class="[ glyphicon glyphicon-chevron-down ]"></span>
+                    </span>
+                    <ul class="dropdown-menu" role="menu">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                    </ul>
+                </div>
+
+                <div class="panel-heading">
+                    <img class="[ img-circle pull-left ]" src="https://lh3.googleusercontent.com/-CxXg7_7ylq4/AAAAAAAAAAI/AAAAAAAAAQ8/LhCIKQC5Aq4/s46-c-k-no/photo.jpg" alt="Mouse0270" />
+                    <h3><%=User.where(id: post.user_id).first.email.split("@")[0]%></h3>
+                    <h5><span>Shared publicly</span> - <span><%= post.created_at.to_formatted_s(:short)%></span> - <span><%= time_ago_in_words(post.created_at)%> ago</span> </h5>
+                </div>
+                <div class="panel-body">
+                  <p><b><%=post.title%></b></p>
+                  <p> <%= post.body %> </p>
+                </div>
+                <div class="panel-footer">
+                    <button type="button" class="[ btn btn-default ]">+1</button>
+                    <button type="button" class="[ btn btn-default ]">
+                        <span class="[ glyphicon glyphicon-share-alt ]"></span>
+                    </button>
+                    <div class="input-placeholder">Add a comment...</div>
+                </div>
+                <div class="panel-google-plus-comment">
+                    <img class="img-circle" src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s46" alt="User Image" />
+                    <div class="panel-google-plus-textarea">
+                        <textarea rows="4"></textarea>
+                        <input type="hidden" name="post_id" value="<%= post.id %>" >
+                        <input type="hidden" name="mail" value="<%= current_user.email %>" >
+                        <button type="submit" class="[ btn btn-success disabled ]">Post comment</button>
+                        <button type="reset" class="[ btn btn-default ]">Cancel</button>
+                  <!--  <% post.comments.each do |comment| %>
+                    <ul><li><%= comment.name %></li> <li><%= comment.body %></li> <li><%= time_ago_in_words(comment.created_at) %> </li></ul> 
+                    
+                    <% end %>
+                    </div>
+                    
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <% end %>
+</div>
