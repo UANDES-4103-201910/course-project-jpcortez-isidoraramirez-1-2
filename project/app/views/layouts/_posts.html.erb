@@ -27,7 +27,7 @@
                   <p><b><%=post.title%></b></p>
                   <p> <%= post.body %> </p>
                   <h3><%= link_to like_post_path(post), class: "like-btn", method: :put, remote: :true do%>
-                    <div><span><p><i class = "fa fa-thumbs-up fa-3x"</i></p></span></div>
+                    <div><span><p><i class = "fa fa-thumbs-up fa-3x"></i></p></span></div>
                     <span class= "likes-count"> <%= post.get_upvotes.size%>  </span>
                     <% end %></h3>
                 </div>
@@ -45,10 +45,19 @@
 
                         <button type="submit" class="[ btn btn-success disabled ]">Post comment</button>
                         <button type="reset" class="[ btn btn-default ]">Cancel</button>
-                  <!--  <% post.comments.each do |comment| %>
-                    <ul><li><%= comment.name %></li> <li><%= comment.body %></li> <li><%= time_ago_in_words(comment.created_at) %> </li></ul>
-
-                    <% end %>
+                        <ul></ul>
+                        <div>
+                          <% post.comments.each do |comment| %>
+                            <div class="[ panel panel-default ] panel-google-plus">
+                            <ul>
+                                <h5> </h5>
+                             <h5> <div><%= comment.name.split("@")[0] %> repleid: </div> </h5>
+                                <div><%= comment.body %>
+                                    
+                                </div> <h9> <span><%= time_ago_in_words(comment.created_at) %> </span></h9></ul>
+                            </div>
+                            <% end %> 
+                        </div>
                     </div>
 
 
