@@ -6,12 +6,13 @@
             <% if  current_user %>
                 <%= form_for :post, :url => {:controller => "posts", :action => "create"} do |post_form| %>
                 <%= post_form.text_field :user_id, value:current_user.id, type:"hidden" %>
+
                 <div style="margin-top: 5%">
                 <div class="col-10" style="margin-left: 10%">
                     <%= post_form.text_field :title, placeholder:"Title", class:"form-control"%>
-                    <%= post_form.text_area :content, placeholder:"Write something", :rows => 6, class:"form-control"%>
+                    <%= post_form.text_area :body, placeholder:"Write your complain", :rows => 6, class:"form-control"%>
                     <div  style="margin-left: 80%">
-                    <%= post_form.submit value:"Complain", class:"btn btn-outline-primary ml-2 mt-2"%>
+                    <%= post_form.submit value:"Complain",class:"btn btn-outline-success my-2 my-sm-0"  %>
                 </div>
                 </div>
                 </div>
@@ -48,7 +49,7 @@
                     <h3></h3>
                 </div>
                 <div class="panel-body">
-                    <a href="/posts/<%= post.id %>" >
+                    <a href="/posts/<%= post.id %>"  >
                   <p><b><%=post.title%></b></p>
                   </a>
                   <p> <%= post.body %> </p>
