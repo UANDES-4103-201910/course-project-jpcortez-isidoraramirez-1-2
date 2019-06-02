@@ -1,5 +1,29 @@
 <div class="container" style="margin-left: 33%">
+    <div class="row">
+        <div class="[ col-xs-12 col-sm-offset-1 col-sm-5 ]">
 
+            <div class="[ panel panel-default ] panel-google-plus">    
+            <% if  current_user %>
+                <%= form_for :post, :url => {:controller => "posts", :action => "create"} do |post_form| %>
+                <%= post_form.text_field :user_id, value:current_user.id, type:"hidden" %>
+                <div style="margin-top: 5%">
+                <div class="col-10" style="margin-left: 10%">
+                    <%= post_form.text_field :title, placeholder:"Title", class:"form-control"%>
+                    <%= post_form.text_area :content, placeholder:"Write something", :rows => 6, class:"form-control"%>
+                    <div  style="margin-left: 80%">
+                    <%= post_form.submit value:"Complain", class:"btn btn-outline-primary ml-2 mt-2"%>
+                </div>
+                </div>
+                </div>
+                
+                <% end %>
+
+            <% else %>
+
+            <% end %>
+            </div>
+        </div>
+    </div>        
   <% Post.all.each do |post| %>
     <div class="row">
         <div class="[ col-xs-12 col-sm-offset-1 col-sm-5 ]">
@@ -41,7 +65,7 @@
                 <div class="panel-google-plus-comment">
                     <img class="img-circle" src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s46" alt="User Image" />
                     <div class="panel-google-plus-textarea">
-                        <textarea rows="4"></textarea>
+                        <textarea rows="4" ></textarea>
 
                         <button type="submit" class="[ btn btn-success disabled ]">Post comment</button>
                         <button type="reset" class="[ btn btn-default ]">Cancel</button>
