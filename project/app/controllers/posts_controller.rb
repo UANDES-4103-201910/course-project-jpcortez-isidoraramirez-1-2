@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:show, :index]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :vote]
+  before_action :authenticate_user!, except: [:show, :index] , only: [:new, :vote]
+  respond_to :js, :html, :json
   # GET /posts
   # GET /posts.json
   def index
@@ -15,6 +16,14 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+  end
+
+  def vote
+    if !current_user.liked? @post
+      @post.liked_by current_user
+    elsif current_user.liked? @post
+      @post.unliked_by current_user
+    end
   end
 
   # GET /posts/1/edit

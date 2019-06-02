@@ -20,6 +20,10 @@
                 <div class="panel-heading">
                     <img class="[ img-circle pull-left ]" src="https://lh3.googleusercontent.com/-CxXg7_7ylq4/AAAAAAAAAAI/AAAAAAAAAQ8/LhCIKQC5Aq4/s46-c-k-no/photo.jpg" alt="Mouse0270" />
                     <h3><%=User.where(id: post.user_id).first.email.split("@")[0]%></h3>
+                    <h3><%= link_to like_post_path(post), class: "like-btn", method: :put, remote: :true do%>
+                      <div><span><p><i class = "fa fa-thumbs-up fa-3x"</i></p></span></div>
+                      <span class= "likes-count"> <%= post.get_upvotes.size%>  </span>
+                      <% end %></h3>
                     <h5><span>Shared publicly</span> - <span><%= post.created_at.to_formatted_s(:short)%></span> - <span><%= time_ago_in_words(post.created_at)%> ago</span> </h5>
                 </div>
                 <div class="panel-body">
@@ -37,16 +41,15 @@
                     <img class="img-circle" src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s46" alt="User Image" />
                     <div class="panel-google-plus-textarea">
                         <textarea rows="4"></textarea>
-                        <input type="hidden" name="post_id" value="<%= post.id %>" >
-                        <input type="hidden" name="mail" value="<%= current_user.email %>" >
+
                         <button type="submit" class="[ btn btn-success disabled ]">Post comment</button>
                         <button type="reset" class="[ btn btn-default ]">Cancel</button>
                   <!--  <% post.comments.each do |comment| %>
-                    <ul><li><%= comment.name %></li> <li><%= comment.body %></li> <li><%= time_ago_in_words(comment.created_at) %> </li></ul> 
-                    
+                    <ul><li><%= comment.name %></li> <li><%= comment.body %></li> <li><%= time_ago_in_words(comment.created_at) %> </li></ul>
+
                     <% end %>
                     </div>
-                    
+
 
                     <div class="clearfix"></div>
                 </div>
