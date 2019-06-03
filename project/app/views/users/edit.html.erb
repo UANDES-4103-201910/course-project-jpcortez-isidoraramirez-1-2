@@ -1,0 +1,13 @@
+<h1>Edit your Profile</h1>
+
+<%= form_for(@user, html: {multipart: true}) do |f| %>
+
+<%= f.label :username %>
+<%= f.text_field :username%>
+<%= f.label :bio %>
+<%= f.text_field :bio %>
+<%= avatar_for(@user) %>
+<%= f.file_field :avatar %>
+<%= f.submit "Save changes"%>
+<% end%>
+<p> The location is pending </p>

@@ -2,7 +2,7 @@
     <div class="row">
         <div class="[ col-xs-12 col-sm-offset-1 col-sm-5 ]">
 
-            <div class="[ panel panel-default ] panel-google-plus">    
+            <div class="[ panel panel-default ] panel-google-plus">
             <% if  current_user %>
                 <%= form_for :post, :url => {:controller => "posts", :action => "create"} do |post_form| %>
                 <%= post_form.text_field :user_id, value:current_user.id, type:"hidden" %>
@@ -15,7 +15,7 @@
                 </div>
                 </div>
                 </div>
-                
+
                 <% end %>
 
             <% else %>
@@ -23,7 +23,7 @@
             <% end %>
             </div>
         </div>
-    </div>        
+    </div>
   <% Post.all.each do |post| %>
     <div class="row">
         <div class="[ col-xs-12 col-sm-offset-1 col-sm-5 ]">
@@ -42,8 +42,10 @@
                 </div>
 
                 <div class="panel-heading">
-                    <img class="[ img-circle pull-left ]" src="https://lh3.googleusercontent.com/-CxXg7_7ylq4/AAAAAAAAAAI/AAAAAAAAAQ8/LhCIKQC5Aq4/s46-c-k-no/photo.jpg" alt="Mouse0270" />
-                    <h3><%=User.where(id: post.user_id).first.email.split("@")[0]%></h3>
+                    <%= avatar_for(User.where(id: post.user_id).first, size: 50) %>
+                    <a href="/users/<%= post.user_id %>" >
+                      <p><b><%=User.where(id: post.user_id).first.username%></b></p>
+                    </a>
                     <h5><span>Shared publicly</span> - <span><%= post.created_at.to_formatted_s(:short)%></span> - <span><%= time_ago_in_words(post.created_at)%> ago</span> </h5>
                     <h3></h3>
                 </div>
@@ -79,10 +81,10 @@
                                 <h5> </h5>
                              <h5> <div><%= comment.name.split("@")[0] %> repleid: </div> </h5>
                                 <div><%= comment.body %>
-                                    
+
                                 </div> <h9> <span><%= time_ago_in_words(comment.created_at) %> </span></h9></ul>
                             </div>
-                            <% end %> 
+                            <% end %>
                         </div>
                     </div>
 

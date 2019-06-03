@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 	devise_for :users, controllers: { omniauth_callbacks: 'callbacks' }
-  resources :posts do
+
+resources :users, only: [:show, :edit, :update]
+
+	resources :posts do
     resources :comments
 		member do
 			put "like" => "posts#vote"
