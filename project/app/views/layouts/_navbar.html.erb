@@ -35,16 +35,17 @@
       <li class="nav-item active">
         <a class="nav-link" href="/">
           <% if current_user %>
-            <li><%= link_to 'Log out' , destroy_user_session_path, method: :delete%> &nbsp &nbsp</li> 
+          <li><%= link_to avatar_for(current_user, size: 50) , current_user%> &nbsp &nbsp</li>
+            <li><%= link_to 'Log out' , destroy_user_session_path, method: :delete%> &nbsp &nbsp</li>
           <% else %>
-            <li><%= link_to 'Join Us!' , new_user_registration_path, class: "sessionbuttons" %> &nbsp &nbsp </li> 
-            <li><%= link_to 'Log in' , new_user_session_path , class: "sessionbuttons"%> &nbsp &nbsp</li> 
-          <% end %> 
+            <li><%= link_to 'Join Us!' , new_user_registration_path, class: "sessionbuttons" %> &nbsp &nbsp </li>
+            <li><%= link_to 'Log in' , new_user_session_path , class: "sessionbuttons"%> &nbsp &nbsp</li>
+          <% end %>
           <span class="sr-only">(current)</span>
         </a>
       </li>
     </ul>
 
-    
+
   </div>
 </nav>

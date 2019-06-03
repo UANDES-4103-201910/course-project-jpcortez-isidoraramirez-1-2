@@ -1,0 +1,89 @@
+  <div class="row">
+<div class="[ panel panel-default ] panel-google-plus" style="margin-left: 1%" > 
+<% if @user.username? %>
+  <h1>Profile for <%=@user.username.capitalize%></h1>
+  <h3> <%= @user.bio %></h3>
+<% else %>
+  <h1>Profile for <%= @user.email%>. This user haven't configured his username yet.</h1>
+<%= avatar_for(@user) %>
+
+<% end %>
+<% if @user.id == current_user.id || current_user.admin || current_user.super %>
+<%= link_to 'Edit your profile!', edit_user_path(@user) %>
+<% end%>
+</div>
+  
+</div>
+<% Post.where(user_id: @user.id).each do |post| %>
+  <div class="row">
+      <div class="[ col-xs-12 col-sm-offset-1 col-sm-5 ]">
+          <div class="[ panel panel-default ] panel-google-plus">
+              <div class="dropdown">
+                  <span class="dropdown-toggle" type="button" data-toggle="dropdown">
+                      <span class="[ glyphicon glyphicon-chevron-down ]"></span>
+                  </span>
+                  <ul class="dropdown-menu" role="menu">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                  </ul>
+              </div>
+
+              <div class="panel-heading">
+                  <%= avatar_for(User.where(id: post.user_id).first, size: 50) %>
+                  <a href="/users/<%= post.user_id %>" >
+                    <p><b><%=User.where(id: post.user_id).first.username%></b></p>
+                  </a>
+                  <h5><span>Shared publicly</span> - <span><%= post.created_at.to_formatted_s(:short)%></span> - <span><%= time_ago_in_words(post.created_at)%> ago</span> </h5>
+                  <h3></h3>
+              </div>
+              <div class="panel-body">
+                  <a href="/posts/<%= post.id %>" >
+                <p><b><%=post.title%></b></p>
+                </a>
+                <p> <%= post.body %> </p>
+                <h3><%= link_to like_post_path(post), class: "like-btn", method: :put, remote: :true do%>
+                  <div><span><p><i class = "fa fa-thumbs-up fa-3x"></i></p></span></div>
+                  <span class= "likes-count"> <%= post.get_upvotes.size%>  </span>
+                  <% end %></h3>
+              </div>
+              <div class="panel-footer">
+                  <button type="button" class="[ btn btn-default ]">+1</button>
+                  <button type="button" class="[ btn btn-default ]">
+                      <span class="[ glyphicon glyphicon-share-alt ]"></span>
+                  </button>
+                  <div class="input-placeholder">Add a comment...</div>
+              </div>
+              <div class="panel-google-plus-comment">
+                  <img class="img-circle" src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s46" alt="User Image" />
+                  <div class="panel-google-plus-textarea">
+                      <textarea rows="4" ></textarea>
+
+                      <button type="submit" class="[ btn btn-success disabled ]">Post comment</button>
+                      <button type="reset" class="[ btn btn-default ]">Cancel</button>
+                      <ul></ul>
+                      <div>
+                        <% post.comments.each do |comment| %>
+                          <div class="[ panel panel-default ] panel-google-plus">
+                          <ul>
+                              <h5> </h5>
+                           <h5> <div><%= comment.name.split("@")[0] %> repleid: </div> </h5>
+                              <div><%= comment.body %>
+
+                              </div> <h9> <span><%= time_ago_in_words(comment.created_at) %> </span></h9></ul>
+                          </div>
+                          <% end %>
+                      </div>
+                  </div>
+
+
+                  <div class="clearfix"></div>
+              </div>
+          </div>
+      </div>
+
+
+  </div>
+  <% end %>

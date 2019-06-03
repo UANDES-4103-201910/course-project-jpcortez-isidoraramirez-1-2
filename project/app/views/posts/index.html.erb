@@ -19,7 +19,7 @@
         <td><%= post.body %></td>
         <td><%= post.user.email %></td>
         <td><%= link_to 'Read Post', post %></td>
-        <% if current_user && current_user.admin %>
+        <% if current_user && (current_user.admin || current_user.super)%>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
