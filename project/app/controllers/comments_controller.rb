@@ -15,7 +15,11 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.name = current_user.username
-    @comment.save  
+    @comment.save 
+    respond_to do |format|
+      format.html { redirect_back(fallback_location: root_path)  }
+      format.json { head :no_content }
+    end 
   end
 
 
