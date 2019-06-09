@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update]
-  
+
   before_action :set_user
+  respond_to :js, :html, :json
   def show
     @user= User.find(params[:id])
   end
