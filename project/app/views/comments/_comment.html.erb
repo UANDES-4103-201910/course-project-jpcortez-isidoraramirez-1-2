@@ -1,3 +1,6 @@
+
 <p><%= comment.name %></p>
 <p><%= comment.body %></p>
-<span><%= time_ago_in_words(comment.created_at )%></span>
+<% if comment.created_at != nil %>
+<span><%= time_ago_in_words(comment.created_at)%></span>
+<% end %>

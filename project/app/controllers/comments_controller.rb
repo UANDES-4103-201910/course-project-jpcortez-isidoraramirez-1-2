@@ -1,5 +1,9 @@
 class CommentsController < ApplicationController
 
+  def new
+    @comment = Comment.new
+  end
+
   def create
     @post = Post.find(params[:post_id])
     @comment=@post.comments.create(params[:comment].permit(:name, :body))
@@ -7,6 +11,14 @@ class CommentsController < ApplicationController
     @comment.save
     redirect_to '/'
   end
+
+  def create
+    @comment = Comment.new(comment_params)
+    @comment.name = current_user.username
+    @comment.save  
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
@@ -15,7 +27,7 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:post_id)
+      params.require(:comment).permit(:name, :body, :post_id)
     end
 
 end

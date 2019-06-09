@@ -20,7 +20,13 @@
     <%= form.label :body %>
     <%= form.text_area :body %>
   </div>
+<div class="field">
+  <% if post.avatar? %>
+  <%= image_tag post.avatar.url(:thumb) %>
 
+  <% end %>
+  <%= form.file_field :avatar %>
+</div>
 
   <div class="actions">
     <%= form.submit %>
