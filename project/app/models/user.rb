@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   acts_as_voter
+  before_create :default_username
   mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -15,4 +16,8 @@ class User < ApplicationRecord
     end
   user
   end
+
+def default_username
+   self.username ||= "new_user"
+end
 end

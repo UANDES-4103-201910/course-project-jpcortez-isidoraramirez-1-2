@@ -8,9 +8,13 @@
 <%= avatar_for(@user) %>
 
 <% end %>
-<% if @user.id == current_user.id || current_user.admin || current_user.super %>
+
+<% if @user.id == current_user.id %>
 <%= link_to 'Edit your profile!', edit_user_path(@user) %>
+<% elsif (!@user.admin && !@user.super) && (current_user.admin || current_user.super) %>
+<%= link_to 'Edit this profile', edit_user_path(@user) %>
 <% end%>
+
 </div>
   
 </div>

@@ -18,14 +18,24 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def vote
-    if !current_user.liked? @post
+ # def vote
+  #  if !current_user.liked? @post
+   #   @post.liked_by current_user
+    #elsif current_user.liked? @post
+    #  @post.unliked_by current_user
+    #end
+  #end
+  def like
+    @post = Post.find(params[:id])
+    if current_user
+      if !current_user.liked? @post
       @post.liked_by current_user
-    elsif current_user.liked? @post
+      elsif current_user.liked? @post
       @post.unliked_by current_user
     end
-  end
-
+    redirect_back(fallback_location: :back)
+    end 
+  end 
   # GET /posts/1/edit
   def edit
   end

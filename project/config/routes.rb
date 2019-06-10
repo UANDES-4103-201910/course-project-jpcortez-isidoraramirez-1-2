@@ -6,7 +6,7 @@ resources :comments, only: [:show, :create, :update]
 	resources :posts do
     resources :comments
 		member do
-			put "like" => "posts#vote"
+			put "like" => "posts#like"
 		end
   end
   root to: 'pages#home'
