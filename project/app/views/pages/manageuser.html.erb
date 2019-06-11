@@ -17,7 +17,8 @@
 			    	<a class="btn btn-info btn-lg" onclick="/manage_users">Remove Admin</a>
 			    	<% end %>
 			        <a href="#" class="btn btn-danger btn-lg">Block User</a>
-			        <button class="btn btn-dark  btn-lg" onclick="/manage_users"><% user.toggle(:blacklist)%>Blacklist</button>
+			        <button href="/manage_users" class="btn btn-dark  btn-lg" onclick="/manage_users"<% user.toggle!(:blacklist)%>>Blacklist
+			        </button>
     			</div>
 		  </div>
 	</div>
