@@ -62,31 +62,35 @@
                   </button>
                   <div class="input-placeholder">Add a comment...</div>
               </div>
-              <div class="panel-google-plus-comment">
-                  <img class="img-circle" src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s46" alt="User Image" />
-                  <div class="panel-google-plus-textarea">
-                      <textarea rows="4" ></textarea>
+               <div class="panel-google-plus-comment">
+                    <img class="img-circle" src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s46" alt="User Image" />
+                    <div class="panel-google-plus-textarea">
+                        <% if current_user %>
+                        <%= form_for :comment, :url => {:controller => "comments", :action => "create"} do |comment_form| %>
+                            <%= comment_form.text_field :post_id, value: post.id , type:"hidden" %>
+                            <%= comment_form.text_field :name, value:current_user.username, type:"hidden" %>
+                            <%= comment_form.text_area :body, placeholder:"Write your comment", :rows => 4, class:"form-control"%>
+                            <%= comment_form.submit value:"Complain",class:" btn btn-success "  %>
+                                <% end %>
+                        <% end %>
+                                    <button type="reset" class="[ btn btn-default ]">Cancel</button>
+                                    <ul></ul>
+                                    <div>
+                                      <% post.comments.each do |comment| %>
+                                        <div class="[ panel panel-default ] panel-google-plus">
+                                        <ul>
+                                            <h5> </h5>
+                                         <h5> <div><%= comment.name %> repleid: </div> </h5>
+                                            <div><%= comment.body %>
+                                            </div> <h9> <span><%= time_ago_in_words(comment.created_at) %> </span></h9></ul>
+                                        </div>
+                                        <% end %>
+                        </div>
+                    </div>
 
-                      <button type="submit" class="[ btn btn-success disabled ]">Post comment</button>
-                      <button type="reset" class="[ btn btn-default ]">Cancel</button>
-                      <ul></ul>
-                      <div>
-                        <% post.comments.each do |comment| %>
-                          <div class="[ panel panel-default ] panel-google-plus">
-                          <ul>
-                              <h5> </h5>
-                           <h5> <div><%= comment.name %> repleid: </div> </h5>
-                              <div><%= comment.body %>
 
-                              </div> <h9> <span><%= time_ago_in_words(comment.created_at) %> </span></h9></ul>
-                          </div>
-                          <% end %>
-                      </div>
-                  </div>
-
-
-                  <div class="clearfix"></div>
-              </div>
+                    <div class="clearfix"></div>
+                </div>
           </div>
       </div>
 
