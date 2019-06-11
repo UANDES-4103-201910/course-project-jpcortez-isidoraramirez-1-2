@@ -28,7 +28,20 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-
+  def destroy
+    @user=User.find(params[:id])
+    @user.posts.each do |p|
+      p.comments.each do |c|
+      c.destroy
+      end
+      p.destroy
+    end
+    @user.destroy
+    respond_to do |format|
+      format.html { redirect_to manage_users_url, notice: 'User was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
 
 
 

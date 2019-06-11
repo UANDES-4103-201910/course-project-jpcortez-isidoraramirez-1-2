@@ -13,6 +13,7 @@ resources :comments, only: [:show, :create, :update]
 		end
   end
   root to: 'pages#home'
+  delete '/users/:id', to: 'users#destroy'
   get 'sadmin_panel', to: 'pages#sadminpanel'
   get 'admin_panel', to: 'pages#adminpanel'
   get 'manage_users', to: 'pages#manageuser'
