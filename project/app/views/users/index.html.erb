@@ -24,11 +24,8 @@
         <td><%= user.admin %></td>
         <% if current_user && (current_user.admin || current_user.super)%>
         <td><%= link_to 'Edit User', user %></td>
-<<<<<<< HEAD
-=======
         <% end %>
 
->>>>>>> 69aafc60e38cdd95d59506bd594ccd5fd3637423
       </tr>
     <% end %>
   </tbody>

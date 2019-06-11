@@ -1,4 +1,5 @@
-	<h1>Manage Users</h1>
+<div class="container">	
+	<h1>Manage Posts</h1>
 	<% Post.all.each do |post| %>
 
 </br>
@@ -7,10 +8,15 @@
 		     <%= post.title %> by <%= post.user.username %> 
 		  </div>
 		  <div class="card-body">
-		    <h5 class="card-title"><%= post.body %></h5>
+		    <h5 class="card-title">
+		    	<% if post.body == "" %>
+		    		This post has no body.
+		    	<% else %>
+		    	<%= post.body %>
+		    	<% end %>	
+		    	</h5>
 		    <p class="card-text">Choose wisely.</p>
 		        <div class="btn-group  pull-right">
-		        	
 			       <a class="btn btn-primary btn-lg"  onclick="/manage_users">Delete Post</a>
 			        <a href="#" class="btn btn-danger btn-lg">Move to Dumpster</a>
 			        <button href="/manage_users" class="btn btn-dark  btn-lg" onclick="/manage_users">Algo
