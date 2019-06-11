@@ -7,4 +7,6 @@ class PagesController < ApplicationController
   end
   def manageuser
   end
+  def managepost
+  end
 end
