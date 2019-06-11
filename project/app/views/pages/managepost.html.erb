@@ -1,5 +1,7 @@
 <div class="container">	
 	<h1>Manage Posts</h1>
+<a class="btn btn-secondary btn-xl col-12"  onclick="location.href='/sadmin_panel'">BACK</a>
+<br>
 	<% Post.all.each do |post| %>
 
 </br>
@@ -17,13 +19,14 @@
 		    	</h5>
 		    <p class="card-text">Choose wisely.</p>
 		        <div class="btn-group  pull-right">
-			       <a class="btn btn-primary btn-lg"  onclick="/manage_users">Delete Post</a>
+			       <a class="btn btn-primary btn-lg"  onclick="/manage_posts">Delete Post</a>
 			        <a href="#" class="btn btn-danger btn-lg">Move to Dumpster</a>
-			        <button href="/manage_users" class="btn btn-dark  btn-lg" onclick="/manage_users">Algo
+			        <button href="/manage_users" class="btn btn-dark  btn-lg" onclick="/manage_posts">Algo
 			        </button>
     			</div>
 		  </div>
 	</div>
     <% end %>   
-    <hr>   	
+    <hr>
+    <hr>    	
 </div>
