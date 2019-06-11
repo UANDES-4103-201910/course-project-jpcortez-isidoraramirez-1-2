@@ -10,6 +10,7 @@ resources :comments, only: [:show, :create, :update]
 		end
   end
   root to: 'pages#home'
+  get 'sadmin_panel', to: 'pages#sadminpanel' 
 
 
 

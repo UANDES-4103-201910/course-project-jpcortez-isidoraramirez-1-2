@@ -1,6 +1,5 @@
-<div class="container" style="margin-left: 33%">
     <div class="row">
-        <div class="[ col-xs-12 col-sm-offset-1 col-sm-5 ]">
+        <div class="col-8">
 
             <div class="[ panel panel-default ] panel-google-plus">
             <% if  current_user %>
@@ -28,7 +27,7 @@
   <% Post.all.reverse_each do |post| %>
   <% id_post = post.id %>
     <div class="row">
-        <div class="[ col-xs-12 col-sm-offset-1 col-sm-5 ]">
+        <div class="col-8 justify">
             <div class="[ panel panel-default ] panel-google-plus">
                 <div class="dropdown">
                     <span class="dropdown-toggle" type="button" data-toggle="dropdown">
@@ -103,4 +102,3 @@
 
     </div>
     <% end %>
-</div>
