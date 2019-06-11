@@ -11,4 +11,6 @@ class PagesController < ApplicationController
   end
   def dumpster
   end
+  def terms
+  end
 end

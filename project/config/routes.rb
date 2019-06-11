@@ -19,6 +19,7 @@ resources :comments, only: [:show, :create, :update]
   get 'manage_users', to: 'pages#manageuser'
   get 'manage_posts', to: 'pages#managepost'
   get 'dumpster', to: 'pages#dumpster'
+  get 'terms', to: 'pages#terms'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
