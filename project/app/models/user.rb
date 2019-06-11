@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   acts_as_voter
   before_create :default_username
+  before_create :default_blacklist
   mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -22,6 +23,6 @@ def default_username
 end
 
 def default_blacklist
-   self.username ||= "new_user"
+   self.username ||= false
 end
 end
