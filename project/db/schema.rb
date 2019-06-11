@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2019_06_11_160800) do
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
     t.boolean "super"
-    t.string "username"
+    t.string "username", default: "new_user"
     t.string "bio"
     t.string "avatar"
     t.boolean "blacklist", default: false
