@@ -1,5 +1,5 @@
   <div class="row">
-<div class="[ panel panel-default ] panel-google-plus" style="margin-left: 1%" > 
+<div class="[ panel panel-default ] panel-google-plus" style="margin-left: 1%" >
 <% if @user.username? %>
   <h1>Profile for <%=@user.username.capitalize%></h1>
   <h3> <%= @user.bio %></h3>
@@ -9,14 +9,16 @@
 
 <% end %>
 
+<%if current_user %>
 <% if @user.id == current_user.id %>
 <%= link_to 'Edit your profile!', edit_user_path(@user) %>
 <% elsif (!@user.admin && !@user.super) && (current_user.admin || current_user.super) %>
 <%= link_to 'Edit this profile', edit_user_path(@user) %>
 <% end%>
+<% end %>
 
 </div>
-  
+
 </div>
 <% Post.where(user_id: @user.id).each do |post| %>
   <div class="row">
