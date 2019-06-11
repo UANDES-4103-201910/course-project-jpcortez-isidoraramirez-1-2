@@ -1,37 +1,22 @@
 <div class="container">
-	<h2> Hi admin <%= current_user.username %> :) </h2>
-	<div class="[ panel panel-default ] panel-google-plus">
-		<div class="container">
-			<hr>
+      <h2> Hi admin <%= current_user.username %> :) </h2>
+      <div class="[ panel panel-default ] panel-google-plus">
+            <div class="container">
+                  <hr>
             <div class="row">
-            	<div class="col">
-            		<button type="button" class="btn btn-primary btn-lg">Manage Users</button> <br>
-            	</div>
-            		
-            	<div class="col">
-            		<button type="button" class="btn btn-primary btn-lg">Manage Posts</button>
-            	</div>
-            		
-            	<div class="col">
-            		<button type="button" class="btn btn-primary btn-lg">Edit Useer</button>
-            	</div>
-			</div>
-			<div class="row">
-				 <br>
-				 <hr>
-			</div>
-			<div class="row">
-				<div class="col">
-            		<button type="button" class="btn btn-primary btn-lg">Dumpster</button> <br>
-            	</div>
-            	<div class="col">
-            		<button type="button" class="btn btn-primary btn-lg">Blacklist</button> <br>
-            	</div>
-            	<div class="col">
-            		<button type="button" class="btn btn-primary btn-lg">Create User</button> <br>
-            	</div>
-			</div>
-			<hr>
-		</div>
-	</div>
+                  <div class="col">
+                        <button type="button" class="btn btn-primary btn-lg" onclick="location.href='/manage_users'">Manage Users</button> <br>
+                  </div>
+                        
+                  <div class="col">
+                        <button type="button" class="btn btn-primary btn-lg" onclick="location.href='/manage_posts'">Manage Posts</button>
+                  </div>
+                        
+                  <div class="col">
+                        <button type="button" class="btn btn-primary btn-lg" onclick="location.href='/users'">Create User</button>
+                  </div>
+                  </div>
+                  <hr>
+            </div>
+      </div>
 </div>

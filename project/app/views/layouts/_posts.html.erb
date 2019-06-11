@@ -10,11 +10,14 @@
                 <div class="col-10" style="margin-left: 10%">
                     <%= post_form.text_field :title, placeholder:"Title", class:"form-control"%>
                     <%= post_form.text_area :body, placeholder:"Write your complain", :rows => 6, class:"form-control"%>
+                    <%= post_form.label "Choose a picture" %><br>    
+                    <%= post_form.file_field :avatar %>
                     <div  style="margin-left: 80%">
                     <%= post_form.submit value:"Complain",class:"btn btn-outline-success my-2 my-sm-0"  %>
                 </div>
                 </div>
                 </div>
+                
                 <div class="container" style="margin-left: 10%">
                     Location:
              <input id="pac-input" class="controls" type="text" placeholder="Search Box">

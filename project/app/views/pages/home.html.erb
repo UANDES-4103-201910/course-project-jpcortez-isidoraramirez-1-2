@@ -4,7 +4,7 @@
 	<% if current_user %>
 		<% if current_user.super == true %>
 		<button type="reset" class="[ btn btn-success ] pull-right " onclick="location.href='/sadmin_panel'"> Super Admin Panel </button>
-		<% elsif (current_user.admin == true) && (current_user.super == true) %>
+		<% elsif (current_user.admin == true) && (current_user.super == false) %>
 		<button type="reset" class="[ btn btn-success ] pull-right " onclick="location.href='/admin_panel'">Admin Panel </button>
 		<% end%>
 	<% end %>

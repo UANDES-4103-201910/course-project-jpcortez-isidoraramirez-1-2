@@ -1,22 +1,25 @@
 <div class="container">
 	<h1>Manage Users</h1>
+	<% if current_user.super == true %>
 <a class="btn btn-secondary btn-xl col-12"  onclick="location.href='/sadmin_panel'">BACK</a>
 <br>
+	<% elsif current_user.admin == true && (current_user.super == false)%>
+<a class="btn btn-secondary btn-xl col-12"  onclick="location.href='/admin_panel'">BACK</a>
+<br>
+	<% end %>
 
 	<% User.all.each do |user| %>
 
-
+</br>
 	<div class="card">
 		  <div class="card-header">
-<<<<<<< HEAD
 		     <%= user.username %> (blacklist:<%= user.blacklist %>),
-=======
 		     <%= link_to user.username, user %> (blacklist:<%= user.blacklist %>), 
->>>>>>> caff2fa101e4fb41dd321c15315b52aa5de40277
 		  </div>
 		  <div class="card-body">
 		    <h5 class="card-title"><%= user.email %></h5>
 		    <p class="card-text">Choose wisely.</p>
+		    <% if current_user.super ==true %>
 		        <div class="btn-group  pull-right">
 		        	<% if user.admin == false %>
 			       <a class="btn btn-primary btn-lg"  onclick="/manage_users">Make Admin</a>
@@ -25,15 +28,21 @@
 			    	<% end %>
 			        <a href="#" class="btn btn-danger btn-lg">Block User</a>
 							<%# <%= #link_to "blacklist", user_blacklisted_path(user), method: :put, class: "like-btn"%> 
+    				
     			</div>
+    		<% elsif (current_user.super == false) && (current_user.admin == true) %>
+    			<div class="btn-group  pull-right">
+			       <a class="btn btn-primary btn-lg"  onclick="/manage_users">Delete User</a>
+			    	<a class="btn btn-info btn-lg" onclick="/manage_users">Edit User</a>
+			        <a href="#" class="btn btn-danger btn-lg">Block User</a>
+							<%# <%= #link_to "blacklist", user_blacklisted_path(user), method: :put, class: "like-btn"%> 
+    				
+    			</div>
+    		<% end %>
 		  </div>
 	</div>
-<<<<<<< HEAD
+</br>
     <% end %>
 </div>
-=======
-    <% end %>    
     <hr>
     <hr>   	
-</div>
->>>>>>> caff2fa101e4fb41dd321c15315b52aa5de40277

@@ -1,15 +1,18 @@
-<h1>Edit your Profile</h1>
+<div class="container">
+	<h1>Edit your Profile</h1>
 
 
-<%= form_for(@user, html: {multipart: true}) do |f| %>
+	<%= form_for(@user, html: {multipart: true}) do |f| %>
 
-<%= f.label :username %>
-<%= f.text_field :username%>
-<%= f.label :bio %>
-<%= f.text_field :bio %>
-<%= avatar_for(@user) %> <br>
-<%= f.file_field :avatar %>
-<br>
-<%= f.submit "Save changes"%>
-<% end %>
-<p> The location is pending </p>
+	<%= f.label :username %> <br>
+	<%= f.text_field :username%><br>
+	<%= f.label :bio %><br>
+	<%= f.text_field :bio %><br>
+	<%= avatar_for(@user) %> <br>
+	<%= f.label "Choose your profile picture" %><br>	
+	<%= f.file_field :avatar %>
+	<br>
+	<%= f.submit "Save changes"%>
+	<% end %>
+	<p> The location is pending </p>
+</div>
