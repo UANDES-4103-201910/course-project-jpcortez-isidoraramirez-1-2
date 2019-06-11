@@ -3,4 +3,6 @@ class PagesController < ApplicationController
   end
   def sadminpanel
   end
+  def adminpanel
+  end
 end

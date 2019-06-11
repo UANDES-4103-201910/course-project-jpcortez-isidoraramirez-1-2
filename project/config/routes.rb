@@ -11,7 +11,7 @@ resources :comments, only: [:show, :create, :update]
   end
   root to: 'pages#home'
   get 'sadmin_panel', to: 'pages#sadminpanel' 
-
+  get 'admin_panel', to: 'pages#adminpanel' 
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

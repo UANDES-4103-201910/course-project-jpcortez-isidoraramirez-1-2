@@ -1,7 +1,13 @@
 <h1 style="text-align: center">Welcome to Russhole!</h1>
 <h4 style="text-align: center">Join us in complaining about everything!</h4>
 <div class="col-10">
-	<button type="reset" class="[ btn btn-success ]"> <%= link_to sadmin_panel_path %>  </button>
+	<% if current_user %>
+		<% if current_user.super == true %>
+		<button type="reset" class="[ btn btn-success ]" onclick="location.href='/sadmin_panel'"> Super Admin Panel </button>
+		<% elsif (current_user.admin == true) && (current_user.super == false) %>
+		<button type="reset" class="[ btn btn-success ]" onclick="location.href='/admin_panel'">Admin Panel </button>
+		<% end%>
+	<% end %>
 </div>
 <div class="container" >
 
