@@ -18,6 +18,7 @@ resources :comments, only: [:show, :create, :update]
   get 'admin_panel', to: 'pages#adminpanel'
   get 'manage_users', to: 'pages#manageuser'
   get 'manage_posts', to: 'pages#managepost'
+  get 'dumpster', to: 'pages#dumpster'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
