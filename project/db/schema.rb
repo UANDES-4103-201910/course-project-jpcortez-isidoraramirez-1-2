@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2019_06_09_192906) do
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
     t.boolean "super"
-    t.string "username"
+    t.string "username", default: "new_user"
     t.string "bio"
     t.string "avatar"
     t.index ["bio"], name: "index_users_on_bio", unique: true

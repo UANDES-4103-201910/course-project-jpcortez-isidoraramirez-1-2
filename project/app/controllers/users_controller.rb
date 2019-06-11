@@ -25,7 +25,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def blacklisted
 
+  end
 
 
   def check_authorization
@@ -34,9 +36,11 @@ class UsersController < ApplicationController
     end
   end
 
-  
+
 
   def user_params
     params.require(:user).permit(:username, :bio, :avatar)
   end
+
+
 end

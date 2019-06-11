@@ -20,4 +20,8 @@ class User < ApplicationRecord
 def default_username
    self.username ||= "new_user"
 end
+
+def default_blacklist
+   self.username ||= "new_user"
+end
 end

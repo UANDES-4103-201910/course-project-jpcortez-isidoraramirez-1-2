@@ -34,8 +34,8 @@ class PostsController < ApplicationController
       @post.unliked_by current_user
     end
     redirect_back(fallback_location: :back)
-    end 
-  end 
+    end
+  end
   # GET /posts/1/edit
   def edit
   end
