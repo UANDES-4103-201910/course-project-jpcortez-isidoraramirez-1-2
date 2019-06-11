@@ -5,4 +5,6 @@ class PagesController < ApplicationController
   end
   def adminpanel
   end
+  def manageuser
+  end
 end
