@@ -22,11 +22,11 @@
 
   </div>
 <div class="field">
-  <% if post.avatar? %>
+
       <%= image_tag post.avatar.url(:thumb) %>
-  <% else %>
+
       <%= form.file_field :avatar %>
-  <% end %>
+
 
 </div>
 

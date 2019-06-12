@@ -2,10 +2,10 @@
 	<h1>Manage Users</h1>
 	<% User.all.each do |user| %>
 
-</br>
+
 	<div class="card">
 		  <div class="card-header">
-		     <%= user.username %> (blacklist:<%= user.blacklist %>), 
+		     <%= user.username %> (blacklist:<%= user.blacklist %>),
 		  </div>
 		  <div class="card-body">
 		    <h5 class="card-title"><%= user.email %></h5>
@@ -17,10 +17,9 @@
 			    	<a class="btn btn-info btn-lg" onclick="/manage_users">Remove Admin</a>
 			    	<% end %>
 			        <a href="#" class="btn btn-danger btn-lg">Block User</a>
-			        <button href="/manage_users" class="btn btn-dark  btn-lg" onclick="/manage_users"<% user.toggle!(:blacklist)%>>Blacklist
-			        </button>
+							<%# <%= #link_to "blacklist", user_blacklisted_path(user), method: :put, class: "like-btn"%> 
     			</div>
 		  </div>
 	</div>
-    <% end %>      	
+    <% end %>
 </div>

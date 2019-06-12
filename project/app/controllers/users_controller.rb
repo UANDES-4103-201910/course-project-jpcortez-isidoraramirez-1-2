@@ -14,7 +14,11 @@ class UsersController < ApplicationController
   def edit
     @user=User.find(params[:id])
   end
-
+  def blacklisted
+    @user = User.find(params[:id])
+    @user.toggle!(:blacklist)
+    redirect_back(fallback_location: :back)
+  end
   def update
     @user=User.find(params[:id])
     if @user.update(user_params)
@@ -25,9 +29,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def blacklisted
 
-  end
 
 
   def check_authorization
@@ -39,7 +41,7 @@ class UsersController < ApplicationController
 
 
   def user_params
-    params.require(:user).permit(:username, :bio, :avatar)
+    params.require(:user).permit(:username, :bio, :avatar, :blacklist)
   end
 
 

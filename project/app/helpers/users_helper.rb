@@ -6,5 +6,5 @@ module UsersHelper
     else
       image_tag "User-secret-01.png", width: size, class: 'avatar-image'
     end
-  end
+end
 end

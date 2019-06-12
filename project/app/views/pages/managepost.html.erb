@@ -1,11 +1,11 @@
-<div class="container">	
+<div class="container">
 	<h1>Manage Posts</h1>
 	<% Post.all.each do |post| %>
 
 </br>
 	<div class="card">
 		  <div class="card-header">
-		     <%= post.title %> by <%= post.user.username %> 
+		     <%= post.title %> by <%= post.user.username %> dumpster? <%=post.dumpster%>
 		  </div>
 		  <div class="card-body">
 		    <h5 class="card-title">
@@ -13,16 +13,17 @@
 		    		This post has no body.
 		    	<% else %>
 		    	<%= post.body %>
-		    	<% end %>	
+		    	<% end %>
 		    	</h5>
 		    <p class="card-text">Choose wisely.</p>
 		        <div class="btn-group  pull-right">
-			       <a class="btn btn-primary btn-lg"  onclick="/manage_users">Delete Post</a>
-			        <a href="#" class="btn btn-danger btn-lg">Move to Dumpster</a>
-			        <button href="/manage_users" class="btn btn-dark  btn-lg" onclick="/manage_users">Algo
-			        </button>
+			       <!-- <a class="btn btn-primary btn-lg"  onclick="/manage_users">Delete Post</a> -->
+			        <%= link_to 'Delete Post', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-lg" %>
+			        <!-- <button href="/manage_users" class="btn btn-dark  btn-lg" onclick="/manage_users">Algo
+			        </button> -->
+							<%= link_to "Move to Dumpster", dumpster_post_path(post), method: :put, class: "btn btn-danger btn-lg"%>
     			</div>
 		  </div>
 	</div>
-    <% end %>      	
+    <% end %>
 </div>

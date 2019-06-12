@@ -25,6 +25,11 @@ class PostsController < ApplicationController
     #  @post.unliked_by current_user
     #end
   #end
+  def dumpsterr
+    @post = Post.find(params[:id])
+    @post.toggle!(:dumpster)
+    redirect_back(fallback_location: :back)
+  end
   def like
     @post = Post.find(params[:id])
     if current_user
@@ -78,7 +83,7 @@ class PostsController < ApplicationController
     end
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to manage_posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

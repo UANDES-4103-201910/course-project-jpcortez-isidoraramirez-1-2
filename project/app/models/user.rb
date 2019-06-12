@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   acts_as_voter
+
   before_create :default_username
   before_create :default_blacklist
   mount_uploader :avatar, AvatarUploader

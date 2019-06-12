@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_11_160800) do
+ActiveRecord::Schema.define(version: 2019_06_12_001800) do
 
   create_table "comments", force: :cascade do |t|
     t.string "name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2019_06_11_160800) do
     t.integer "cached_weighted_total", default: 0
     t.float "cached_weighted_average", default: 0.0
     t.string "avatar"
+    t.boolean "dumpster"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
