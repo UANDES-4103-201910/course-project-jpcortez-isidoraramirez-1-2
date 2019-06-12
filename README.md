@@ -1,4 +1,4 @@
-Russhole!
-Don't zoom in!
-Super admin: sadmin@sadmin.cl pass: 123123
-Admin: admin@admin.cl pass: 123123
+Russhole! /n
+Don't zoom in! /n
+Super admin: sadmin@sadmin.cl pass: 123123 /n
+Admin: admin@admin.cl pass: 123123 /n
