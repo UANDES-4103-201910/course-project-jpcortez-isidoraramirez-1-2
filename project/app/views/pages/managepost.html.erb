@@ -1,11 +1,17 @@
 <div class="container">
 	<h1>Manage Posts</h1>
+<a class="btn btn-secondary btn-xl col-12"  onclick="location.href='/sadmin_panel'">BACK</a>
+<br>
 	<% Post.all.each do |post| %>
 
 </br>
 	<div class="card">
 		  <div class="card-header">
+<<<<<<< HEAD
 		     <%= post.title %> by <%= post.user.username %> dumpster? <%=post.dumpster%>
+=======
+		     <%= post.title %> by <%= link_to post.user.username, post.user %> 
+>>>>>>> caff2fa101e4fb41dd321c15315b52aa5de40277
 		  </div>
 		  <div class="card-body">
 		    <h5 class="card-title">
@@ -17,6 +23,7 @@
 		    	</h5>
 		    <p class="card-text">Choose wisely.</p>
 		        <div class="btn-group  pull-right">
+<<<<<<< HEAD
 			       <!-- <a class="btn btn-primary btn-lg"  onclick="/manage_users">Delete Post</a> -->
 			        <%= link_to 'Delete Post', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-lg" %>
 			        <!-- <button href="/manage_users" class="btn btn-dark  btn-lg" onclick="/manage_users">Algo
@@ -27,3 +34,16 @@
 	</div>
     <% end %>
 </div>
+=======
+			       <a class="btn btn-primary btn-lg"  onclick="/manage_posts">Delete Post</a>
+			        <a href="#" class="btn btn-danger btn-lg">Move to Dumpster</a>
+			        <button href="/manage_users" class="btn btn-dark  btn-lg" onclick="/manage_posts">Algo
+			        </button>
+    			</div>
+		  </div>
+	</div>
+    <% end %>   
+    <hr>
+    <hr>    	
+</div>
+>>>>>>> caff2fa101e4fb41dd321c15315b52aa5de40277

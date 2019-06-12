@@ -1,8 +1,7 @@
+<div class="container">
 <h1>all the users are here</h1>
 
-<h1>Posts</h1>
-
-<table>
+<!-- <table>
   <thead>
     <tr>
       <th>Username</th>
@@ -14,19 +13,26 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody> -->
 
     <% @users.each do |user| %>
-      <tr>
-        <td><%= link_to user.username, user %></td>
-        <td><%= user.email %></td>
-        <td><%= user.last_sign_in_at %></td>
-        <td><%= user.admin %></td>
-        <% if current_user && (current_user.admin || current_user.super)%>
-        <td><%= link_to 'Edit User', user %></td>
-        <% end %>
 
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </br>
+        <div class="card">
+            <div class="card-header">
+               User: <%= link_to user.username, user %>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">
+                E-mail: <%= user.email %>. <br>Admin: <%= user.admin %>
+                </h5>
+              <p class="card-text">las signed in: <%= user.last_sign_in_at %></p>
+                  <div class="btn-group  pull-right">
+                   <a class="btn btn-primary btn-lg" href="<%= edit_user_path(user.id)%>" >Edit User</a>
+                </div>
+            </div>
+        </div>
+<% end %>    
+<hr>   
+<hr> 
+</div>

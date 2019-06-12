@@ -1,11 +1,18 @@
 <div class="container">
 	<h1>Manage Users</h1>
+<a class="btn btn-secondary btn-xl col-12"  onclick="location.href='/sadmin_panel'">BACK</a>
+<br>
+
 	<% User.all.each do |user| %>
 
 
 	<div class="card">
 		  <div class="card-header">
+<<<<<<< HEAD
 		     <%= user.username %> (blacklist:<%= user.blacklist %>),
+=======
+		     <%= link_to user.username, user %> (blacklist:<%= user.blacklist %>), 
+>>>>>>> caff2fa101e4fb41dd321c15315b52aa5de40277
 		  </div>
 		  <div class="card-body">
 		    <h5 class="card-title"><%= user.email %></h5>
@@ -21,5 +28,12 @@
     			</div>
 		  </div>
 	</div>
+<<<<<<< HEAD
     <% end %>
 </div>
+=======
+    <% end %>    
+    <hr>
+    <hr>   	
+</div>
+>>>>>>> caff2fa101e4fb41dd321c15315b52aa5de40277
