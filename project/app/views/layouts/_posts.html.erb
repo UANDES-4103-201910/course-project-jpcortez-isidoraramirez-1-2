@@ -47,6 +47,11 @@
                     <ul class="dropdown-menu" role="menu">
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Follow</a></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Report</a></li>
+                        <% if current_user %>
+                        <% if (post.user.id == current_user.id) %>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= link_to 'Delete Post', post, method: :delete, data: { confirm: 'Are you sure?' } %></a></li>
+                        <% end %>
+                        <% end %>
 <!--                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
                         <li role="presentation" class="divider"></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
@@ -69,10 +74,21 @@
                   <p><b><%=post.title%></b></p>
                   </a>
                   <p> <%= post.body %> </p>
-                  <h3><%= link_to "like", like_post_path(post), method: :put, class: "like-btn"%>
+                  <div class="row">
+                    <div class="col-1">
+                      <h5><%= link_to "like", like_post_path(post), method: :put, class: "like-btn"%>
                     <div><span><p><i class = "fa fa-thumbs-up fa-3x"></i></p></span></div>
                     <span class= "likes-count"> <%= post.get_upvotes.size%>  </span>
-                    </h3>
+                    </h5> </br></div>
+                    <div class="col-1">
+
+                <h5><%= link_to "dislike", dislike_post_path(post), method: :put, class: "like-btn"%>
+                    <div><span><p><i class = "fa fa-thumbs-up fa-3x"></i></p></span></div>
+                    <span class= "likes-count"> <%= post.get_downvotes.size%>  </span>
+                </h5>
+                </div>
+                  </div>
+                  
                 </div>
                 <div class="panel-footer">
                     <button type="button" class="[ btn btn-default ]">+1</button>

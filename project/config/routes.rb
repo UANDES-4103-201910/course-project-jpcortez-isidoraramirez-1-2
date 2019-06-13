@@ -9,6 +9,7 @@ resources :comments, only: [:show, :create, :update]
     resources :comments
 		member do
 			put "like" => "posts#like"
+      put "dislike" => "posts#dislike"
 			put "dumpster" => "posts#dumpsterr"
 		end
   end
@@ -20,6 +21,9 @@ resources :comments, only: [:show, :create, :update]
   get 'manage_posts', to: 'pages#managepost'
   get 'dumpster', to: 'pages#dumpster'
   get 'terms', to: 'pages#terms'
+  get 'liked_by_user', to: 'pages#likedbyuser'
+  get 'disliked_by_user', to: 'pages#dislikedbyuser'
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

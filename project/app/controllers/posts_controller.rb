@@ -41,6 +41,19 @@ class PostsController < ApplicationController
     redirect_back(fallback_location: :back)
     end
   end
+
+  def dislike
+    @post = Post.find(params[:id])
+    if current_user
+      if !current_user.disliked? @post
+      @post.disliked_by current_user
+      elsif current_user.disliked? @post
+      @post.undisliked_by current_user
+    end
+    redirect_back(fallback_location: :back)
+    end
+  end
+
   # GET /posts/1/edit
   def edit
   end

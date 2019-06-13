@@ -13,4 +13,8 @@ class PagesController < ApplicationController
   end
   def terms
   end
+  def likedbyuser
+  end
+  def dislikedbyuser
+  end
 end
