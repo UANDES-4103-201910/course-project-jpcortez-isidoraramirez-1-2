@@ -1,9 +1,9 @@
 <div class="container">
+	<div class="row "> 
 	<h1>Posts you've liked</h1>
-  <div class="col-1 pull-right">
-    <div class="row ">    <button type="reset" class="[ btn btn-primary ] pull-right " onclick="location.href='/users/<%=current_user.id%>'">Back</button>
+       <button type="reset" class="[ btn btn-primary col-12 ] pull-right " onclick="location.href='/users/<%=current_user.id%>'">Back</button>
 </div>
-</div>
+</br>
 	<% posts = current_user.get_up_voted Post %>
 	<% posts.all.each do |post| %>
 		  	

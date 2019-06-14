@@ -1,5 +1,9 @@
 <div class="container">
-	<h1>Posts you've commented</h1>
+	<div class="row "> 
+			<h1>Posts you've commented</h1>
+       <button type="reset" class="[ btn btn-primary col-12 ] pull-right " onclick="location.href='/users/<%=current_user.id%>'">Back</button>
+</div>
+</br>
 	<% Post.all.each do |post| %>
 		<% var = false %>
 		<% post.comments.all.each do |comment| %>
