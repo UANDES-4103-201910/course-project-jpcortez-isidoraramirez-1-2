@@ -25,13 +25,13 @@
 		    <p class="card-text">Choose wisely.</p>
 		        <div class="btn-group  pull-right">
 			       <!-- <a class="btn btn-primary btn-lg"  onclick="/manage_users">Delete Post</a> -->
-			        <%= link_to 'Delete Post', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-lg" %>
+			        <%= link_to 'Delete Post', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-lg" %>
 			        <!-- <button href="/manage_users" class="btn btn-dark  btn-lg" onclick="/manage_users">Algo
 			        </button> -->
 			        <% if post.dumpster == false %>
-					<%= link_to "Move to Dumpster", dumpster_post_path(post), method: :put, class: "btn btn-danger btn-lg"%>
+					<%= link_to "Move to Dumpster", dumpster_post_path(post), method: :put, class: "btn btn-info btn-lg"%>
 					<% else %>
-					<%= link_to "Recover from Dumpster", dumpster_post_path(post), method: :put, class: "btn btn-info btn-lg"%>
+					<%= link_to "Recover from Dumpster", dumpster_post_path(post), method: :put, class: "btn btn-primary btn-lg"%>
 
 					<% end %>
     			</div>

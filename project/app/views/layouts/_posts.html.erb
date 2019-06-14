@@ -37,7 +37,7 @@
     </div>
 
   <% Post.all.reverse_each do |post| %>
-  <% if post.dumpster == false %>
+  <% if (post.dumpster == false) && (post.user.blacklist == false) %>
   <% id_post = post.id %>
   <div class="row">
       <div class="col-2">
