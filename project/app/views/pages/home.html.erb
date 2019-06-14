@@ -3,7 +3,7 @@
 <div class="col-10">
 	<% if current_user %>
 		<% if current_user.super == true %>
-		<button type="reset" class="[ btn btn-success ] pull-right " onclick="location.href='/sadmin_panel'"> Super Admin Panel </button>
+		<button type="reset" class="[ btn btn-success ] pull-left " onclick="location.href='/sadmin_panel'"> Super Admin Panel </button>
 		<% elsif (current_user.admin == true) && (current_user.super == false) %>
 		<button type="reset" class="[ btn btn-success ] pull-right " onclick="location.href='/admin_panel'">Admin Panel </button>
 		<% end%>
@@ -11,10 +11,8 @@
 </div>
 <div class="container" >
 
-
-<div class="col-12">
 <%= render 'layouts/posts' %>
-</div>
-		
+
+
 
 </div>

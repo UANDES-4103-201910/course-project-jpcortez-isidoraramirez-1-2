@@ -1,6 +1,7 @@
     <div class="row">
-        <div class="col-8">
-
+        <div class="col-2">
+          </div>
+          <div class="col-8">
             <div class="[ panel panel-default ] panel-google-plus">
             <% if  current_user %>
                 <%= form_for :post, :url => {:controller => "posts", :action => "create"} do |post_form| %>
@@ -34,10 +35,13 @@
             </div>
         </div>
     </div>
+
   <% Post.all.reverse_each do |post| %>
   <% if post.dumpster == false %>
   <% id_post = post.id %>
-    <div class="row">
+  <div class="row">
+      <div class="col-2">
+      </div>
         <div class="col-8 justify">
             <div class="[ panel panel-default ] panel-google-plus">
                 <div class="dropdown">
