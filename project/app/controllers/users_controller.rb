@@ -20,6 +20,12 @@ class UsersController < ApplicationController
     @user.toggle!(:blacklist)
     redirect_back(fallback_location: :back)
   end
+  def admin
+    @user=User.find(params[:user_id])
+    puts @user
+    @user.toggle!(:admin)
+    redirect_back(fallback_location: :back)
+  end
   def update
     @user=User.find(params[:id])
     if @user.update(user_params)

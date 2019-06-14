@@ -1,0 +1,31 @@
+<div class="container">
+	<h1>Blacklist</h1>
+	<% if current_user.super == true %>
+<a class="btn btn-secondary btn-xl col-12"  onclick="location.href='/sadmin_panel'">BACK</a>
+<br>
+	<% elsif current_user.admin == true && (current_user.super == false)%>
+<a class="btn btn-secondary btn-xl col-12"  onclick="location.href='/admin_panel'">BACK</a>
+<br>
+	<% end %>
+    <% User.all.each do |user| %>
+    <% if user.blacklist == true %>
+      </br>
+        <div class="card">
+            <div class="card-header">
+               User: <%= link_to user.username, user %>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">
+                E-mail: <%= user.email %>. <br>Admin: <%= user.admin %>
+                </h5>
+              <p class="card-text">last signed in: <%= user.last_sign_in_at %></p>
+                  <div class="btn-group  pull-right">
+                   <%= link_to "Recover from Blacklist", user_blacklisted_path(user), method: :put, class: "btn btn-warning btn-lg"%>	
+                	</div>
+            </div>
+        </div>
+    <% end %>
+<% end %>    
+<hr>   
+<hr> 
+</div>

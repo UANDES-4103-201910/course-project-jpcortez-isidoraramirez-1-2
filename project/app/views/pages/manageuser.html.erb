@@ -13,7 +13,7 @@
 </br>
 	<div class="card">
 		  <div class="card-header">
-		     <%= link_to user.username, user %> (blacklist:<%= user.blacklist %>), 
+		     <%= link_to user.username, user %> 
 		  </div>
 		  <div class="card-body">
 		    <h5 class="card-title"><%= user.email %></h5>
@@ -21,9 +21,9 @@
 		    <% if current_user.super ==true %>
 		        <div class="btn-group  pull-right">
 		        	<% if user.admin == false %>
-			       <a class="btn btn-primary btn-lg"  onclick="/manage_users">Make Admin</a>
+			       <%= link_to "Make Admin", user_admin_path(user), method: :put, class: "btn btn-primary btn-lg"%>
 			        <% else %>
-			    	<a class="btn btn-info btn-lg" onclick="/manage_users">Remove Admin</a>
+			    	<%= link_to "Remove Admin", user_admin_path(user), method: :put, class: "btn btn-info btn-lg"%>
 			    	<% end %>
 			        <%= link_to 'Delete User', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-lg"%>
 			         <% if user.blacklist == false %>

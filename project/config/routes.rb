@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 	devise_for :users, controllers: { omniauth_callbacks: 'callbacks' }
 
 resources :users, only: [:show, :edit, :update, :index] do
-	put "blacklisted" => "users#blacklisted"
+  put "blacklisted" => "users#blacklisted"
+  put "admin" => "users#admin"
 end
 resources :comments, only: [:show, :create, :update]
 	resources :posts do
@@ -24,6 +25,8 @@ resources :comments, only: [:show, :create, :update]
   get 'liked_by_user', to: 'pages#likedbyuser'
   get 'disliked_by_user', to: 'pages#dislikedbyuser'
   get 'commented_by_user', to: 'pages#commentonpost'
+    get 'blacklist', to: 'pages#blacklist'
+
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

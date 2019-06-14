@@ -19,4 +19,6 @@ class PagesController < ApplicationController
   end
   def commentonpost
   end
+  def blacklist
+  end
 end
