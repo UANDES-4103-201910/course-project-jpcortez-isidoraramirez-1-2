@@ -23,6 +23,7 @@ resources :comments, only: [:show, :create, :update]
   get 'terms', to: 'pages#terms'
   get 'liked_by_user', to: 'pages#likedbyuser'
   get 'disliked_by_user', to: 'pages#dislikedbyuser'
+  get 'commented_by_user', to: 'pages#commentonpost'
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

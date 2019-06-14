@@ -17,4 +17,6 @@ class PagesController < ApplicationController
   end
   def dislikedbyuser
   end
+  def commentonpost
+  end
 end

@@ -1,6 +1,12 @@
 <div class="container">
 
+  <div class="col-1 pull-right">
+    <div class="row ">    <button type="reset" class="[ btn btn-primary ] pull-right " onclick="location.href='/liked_by_user'">Posts you've liked</button>
+</div>
+    <div class="row"><button type="reset" class="[ btn btn-info ] pull-right " onclick="location.href='/disliked_by_user'">Posts you've disliked</button>
+</div>
 
+  </div>
  <div class="row">
    <div class="col-4">
    </div>
@@ -23,8 +29,8 @@
 <% end %>
 
 </div>
-
 </div>
+
 <% Post.where(user_id: @user.id).each do |post| %>
 <% if post.dumpster == false %>
   <div class="row">
@@ -122,5 +128,6 @@
   </div>
   <% end %>
   <% end %>
+
   </div>
   </br>
