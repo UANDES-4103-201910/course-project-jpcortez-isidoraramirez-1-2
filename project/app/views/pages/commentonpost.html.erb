@@ -1,0 +1,24 @@
+<div class="container">
+	<h1>Posts you've commented</h1>
+	<% Post.all.each do |post| %>
+		<% var = false %>
+		<% post.comments.all.each do |comment| %>
+			<%  if comment.name == current_user.username %>
+			<% var = true %>
+	</br>
+			<% end %>
+			<% if var == true %> 
+			<div class="card">
+			  <div class="card-header">
+			  	<%= post.title %> by <%= link_to post.user.username, post.user %>
+			  </div>
+			  <div class="card-body">
+			    <h5 class="card-title"><%= post.body %></h5>
+			    <p class="card-text"></p>
+			  </div>
+			</div>
+			<% end %>
+		<% end %>
+
+	<% end %>
+</div>
