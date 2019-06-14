@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :update]
+  before_action :authenticate_user!, only: [:edit, :update, :blacklisted]
 
 
   respond_to :js, :html, :json
@@ -15,7 +15,8 @@ class UsersController < ApplicationController
     @user=User.find(params[:id])
   end
   def blacklisted
-    @user = User.find(params[:id])
+    @user=User.find(params[:user_id])
+    puts @user
     @user.toggle!(:blacklist)
     redirect_back(fallback_location: :back)
   end

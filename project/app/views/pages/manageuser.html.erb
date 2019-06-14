@@ -26,6 +26,11 @@
 			    	<a class="btn btn-info btn-lg" onclick="/manage_users">Remove Admin</a>
 			    	<% end %>
 			        <%= link_to 'Delete User', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-lg"%>
+			         <% if user.blacklist == false %>
+			        <%= link_to "Move to Blacklist", user_blacklisted_path(user), method: :put, class: "btn btn-dark btn-lg"%>
+			       <% else %>
+			        <%= link_to "Recover from Blacklist", user_blacklisted_path(user), method: :put, class: "btn btn-warning btn-lg"%>		       
+			       <% end %>
 							<%# <%= #link_to "blacklist", user_blacklisted_path(user), method: :put, class: "like-btn"%> 
     				
     			</div>
@@ -34,6 +39,12 @@
     				<%= link_to 'Delete User', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-lg"%>
 			    	<a class="btn btn-info btn-lg"  onclick="location.href='/users'">Edit User</a>
 			        <a href="#" class="btn btn-primary btn-lg">Block User</a>
+			        <% if user.blacklist == false %>
+			        <%= link_to "Move to Blacklist", user_blacklisted_path(user), method: :put, class: "btn btn-dark btn-lg"%>
+			       <% else %>
+			        <%= link_to "Recover from Blacklist", user_blacklisted_path(user), method: :put, class: "btn btn-warning btn-lg"%>		       
+			       <% end %>
+
 							<%# <%= #link_to "blacklist", user_blacklisted_path(user), method: :put, class: "like-btn"%> 
     				
     			</div>
