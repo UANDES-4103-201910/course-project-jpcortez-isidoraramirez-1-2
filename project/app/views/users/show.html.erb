@@ -1,12 +1,17 @@
 <div class="container">
 
   <div class="col-1 pull-right">
-    <div class="row ">    <button type="reset" class="[ btn btn-primary btn-sm] pull-right " onclick="location.href='/liked_by_user'">Posts you've liked</button>
+    <div class="dropdown">
+  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" onclick="location.href='/liked_by_user'">Posts you've liked<</a>
+    <a class="dropdown-item" onclick="location.href='/disliked_by_user'">Posts you've disliked</a>
+    <a class="dropdown-item"  onclick="location.href='/commented_by_user'">Posts you've commented</a>
+  </div>
 </div>
-    <div class="row"><button type="reset" class="[ btn btn-info btn-sm ] pull-right " onclick="location.href='/disliked_by_user'">Posts you've disliked</button>
-</div>
-    <div class="row"><button type="reset" class="[ btn btn-warning btn-sm] pull-right " onclick="location.href='/commented_by_user'">Posts you've commented</button>
-</div>
+
 
   </div>
  <div class="row">
